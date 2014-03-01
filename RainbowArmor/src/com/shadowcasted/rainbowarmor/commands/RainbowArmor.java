@@ -45,6 +45,7 @@ public class RainbowArmor implements CommandExecutor{
 						return true;
 					}
 				} else {
+					if (args.length > 1){
 				if(args[0].toLowerCase().equalsIgnoreCase("on") ){
 					com.shadowcasted.rainbowarmor.resources1.Main.addPlayerArmor((Player)sender);
 					if(args[1].equalsIgnoreCase("self")){
@@ -150,7 +151,11 @@ public class RainbowArmor implements CommandExecutor{
 				//
 				
 				return true;
-				}
+				}else {
+					sender.sendMessage(addRandom(ChatColor.RED + "Invalid usage! Use /rb for help!"));
+					return true;
+				} 
+				} 
 				}
 		return false;
 	}
