@@ -22,7 +22,6 @@ public class RainbowArmor implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
 		try{
 			if(args != null && cmd.getName().equalsIgnoreCase("rainbowarmor")){
-				sender.sendMessage("RainbowArmorStuff");
 				//
 				//On
 				//
@@ -30,19 +29,35 @@ public class RainbowArmor implements CommandExecutor{
 				if(args[0].toLowerCase().equalsIgnoreCase("on") ){
 					com.shadowcasted.rainbowarmor.resources1.Main.addPlayerArmor((Player)sender);
 					if(args[1].equalsIgnoreCase("self")){
-						//rainbowify(sender);
 						com.shadowcasted.rainbowarmor.resources1.Main.addPlayerArmor((Player)sender);
-						//Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new RainbowRunnable1((Player)sender), 1L, 10L);
-						new Thread(new RainbowRunnable1((Player)sender)).start();
+						RainbowRunnable1.rainbowify((Player) sender);
+					//	new Thread(new RainbowRunnable1((Player)sender)).start();
 						return true;
 					}else if(args[1].equalsIgnoreCase("all")){
-						//rainbowall();
+						for (Player p:Bukkit.getOnlinePlayers()){
+							com.shadowcasted.rainbowarmor.resources1.Main.addPlayerArmor(p);
+							RainbowRunnable1.rainbowify(p);
+						}
 					}else if(isAPlayer(args[1])){
-						//rainbowify(player);
-					}else
-						sender.sendMessage(ChatColor.RED+"Invalid Parameters of Plugin!");
+							Player p = Bukkit.getPlayer(args[1]);
+							com.shadowcasted.rainbowarmor.resources1.Main.addPlayerArmor(p);
+							RainbowRunnable1.rainbowify(p);
+					} else
+						sender.sendMessage(ChatColor.RED+"Invalid Parameters of command!");
 						return true;
 					
+				} else if (args[0].equalsIgnoreCase("off")){
+					if (args[1].equalsIgnoreCase("self")){
+						com.shadowcasted.rainbowarmor.resources1.Main.revertArmor((Player) sender);
+					}
+					else if (args[1].equalsIgnoreCase("all")){
+						for (Player p: Bukkit.getOnlinePlayers()){
+							com.shadowcasted.rainbowarmor.resources1.Main.revertArmor(p);
+						}
+					}
+					else if (isAPlayer(args[1])){
+						com.shadowcasted.rainbowarmor.resources1.Main.revertArmor(Bukkit.getPlayer(args[1]));
+					}
 				}else if(args[0].equalsIgnoreCase("StoreArmor")){
 					sender.sendMessage("Armor Stored");
 					com.shadowcasted.rainbowarmor.resources1.Main.addPlayerArmor((Player)sender);

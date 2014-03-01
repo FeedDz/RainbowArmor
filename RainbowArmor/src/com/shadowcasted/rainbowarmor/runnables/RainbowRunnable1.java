@@ -1,40 +1,43 @@
 package com.shadowcasted.rainbowarmor.runnables;
 
+import java.util.ArrayList;
+
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
-import org.bukkit.material.MaterialData;
 
 public class RainbowRunnable1 implements Runnable{
-
-	
+public static ArrayList<String> players;
+	@Deprecated
 	public RainbowRunnable1(Player p){
-		player = p;
+		//player = p;
 	}
+	@Deprecated
 	public RainbowRunnable1(String name){
-		this(Bukkit.getPlayer(name));
+		//this(Bukkit.getPlayer(name));
 	}
-
-	private Player player;
+	public static void rainbowify(Player p){
+		players.add(p.getName());
+		p.sendMessage(ChatColor.RESET + "" + ChatColor.GOLD + "You are now wearing rainbow armor!" +ChatColor.RESET + ""+ ChatColor.MAGIC + "|||");
+	}
 	public void run() {
-		System.out.println("STarted Thread");
 		// TODO Auto-generated method stub
+		for (String s: players){
+			Player player = Bukkit.getPlayer(s);
 		player.getInventory().setHelmet(new ItemStack(Material.LEATHER_HELMET,1));
 		ItemStack i = player.getInventory().getHelmet();
 		LeatherArmorMeta m = (LeatherArmorMeta)i.getItemMeta();
-		while(true){
 			try{
-				if(player.getInventory().getHelmet().getType() != Material.LEATHER_HELMET){break;}
+				if(player.getInventory().getHelmet().getType() != Material.LEATHER_HELMET){}
 				m.setColor(Color.fromRGB(r, g, b));
 				player.getInventory().getHelmet().setItemMeta(m);
 				nextRGB();
-				Thread.sleep(10);
-			}catch(Exception e){/*CleanUpArmor*/break;}
+			}catch(Exception e){/*CleanUpArmor*/}
 		}
-		System.out.println("Thread Died");
 		
 	}
 
