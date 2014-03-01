@@ -24,10 +24,8 @@ public class ArmorSet {
 		if(armorset != null){
 			player.getInventory().setArmorContents(armorset);
 		}
-		for (String s: RainbowRunnable1.players){
-			if (s.equals(player.getName())){
-				RainbowRunnable1.players.remove(player.getName());
-			}
+		if (RainbowRunnable1.players.contains(player.getName())){
+			RainbowRunnable1.players.remove(player.getName());
 		}
 	}
 

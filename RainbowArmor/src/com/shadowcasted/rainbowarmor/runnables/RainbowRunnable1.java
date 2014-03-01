@@ -9,25 +9,23 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
+import org.bukkit.scheduler.BukkitRunnable;
 
-public class RainbowRunnable1 implements Runnable{
-public static ArrayList<String> players;
-	@Deprecated
-	public RainbowRunnable1(Player p){
-		//player = p;
-	}
-	@Deprecated
-	public RainbowRunnable1(String name){
-		//this(Bukkit.getPlayer(name));
-	}
+public class RainbowRunnable1 extends BukkitRunnable{
+public static ArrayList<String> players = new ArrayList<String>();
 	public static void rainbowify(Player p){
 		players.add(p.getName());
-		p.sendMessage(ChatColor.RESET + "" + ChatColor.GOLD + "You are now wearing rainbow armor!" +ChatColor.RESET + ""+ ChatColor.MAGIC + "|||");
+		p.sendMessage(ChatColor.MAGIC + "|||" + ChatColor.RESET + "" + ChatColor.GOLD + "You are now wearing rainbow armor!" +ChatColor.RESET + ""+ ChatColor.MAGIC + "|||");
+	}
+	public static void rainbowify(String s){
+		players.add(s);
+		Bukkit.getPlayer(s).sendMessage(ChatColor.MAGIC + "|||" + ChatColor.RESET + "" + ChatColor.GOLD + "You are now wearing rainbow armor!" +ChatColor.RESET + ""+ ChatColor.MAGIC + "|||");
 	}
 	public void run() {
 		// TODO Auto-generated method stub
 		for (String s: players){
 			Player player = Bukkit.getPlayer(s);
+			if (player != null){
 		player.getInventory().setHelmet(new ItemStack(Material.LEATHER_HELMET,1));
 		ItemStack i = player.getInventory().getHelmet();
 		LeatherArmorMeta m = (LeatherArmorMeta)i.getItemMeta();
@@ -38,7 +36,7 @@ public static ArrayList<String> players;
 				nextRGB();
 			}catch(Exception e){/*CleanUpArmor*/}
 		}
-		
+		}
 	}
 
 	private int r=255;

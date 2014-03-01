@@ -15,6 +15,9 @@ public void quit(PlayerQuitEvent e){
 		if (RainbowRunnable1.players.contains(p.getName())){
 			com.shadowcasted.rainbowarmor.resources1.Main.revertArmor(p);
 		}
+		if (com.shadowcasted.rainbowarmor.resources1.Main.getArmorMap().keySet().contains(p.getName())){
+			com.shadowcasted.rainbowarmor.resources1.Main.revertArmor(p);
+		}
 	}
 }
 }
