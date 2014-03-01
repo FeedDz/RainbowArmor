@@ -139,6 +139,9 @@ public class RainbowArmor implements CommandExecutor{
 						sender.sendMessage(noperm);
 						return true;
 					}
+				} else {
+					sender.sendMessage(addRandom(ChatColor.RED + "Invalid usage! Use /rb for help!"));
+					return true;
 				}
 				
 				
@@ -147,7 +150,8 @@ public class RainbowArmor implements CommandExecutor{
 				//
 				
 				return true;
-				}}
+				}
+				}
 		return false;
 	}
 	
