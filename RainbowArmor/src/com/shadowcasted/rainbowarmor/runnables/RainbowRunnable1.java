@@ -27,9 +27,11 @@ public static ArrayList<String> players = new ArrayList<String>();
 			Player player = Bukkit.getPlayer(s);
 			if (player != null){
 		player.getInventory().setHelmet(new ItemStack(Material.LEATHER_HELMET,1));
+		player.getInventory().setChestplate(new ItemStack(Material.LEATHER_CHESTPLATE,1));
+		player.getInventory().setBoots(new ItemStack(Material.LEATHER_BOOTS,1));
+		player.getInventory().setLeggings(new ItemStack(Material.LEATHER_LEGGINGS,1));
 		ItemStack i = player.getInventory().getHelmet();
 		LeatherArmorMeta m = (LeatherArmorMeta)i.getItemMeta();
-			try{
 				if(player.getInventory().getHelmet().getType() != Material.LEATHER_HELMET){}
 				if(player.getInventory().getChestplate().getType() != Material.LEATHER_CHESTPLATE){}
 				if(player.getInventory().getBoots().getType() != Material.LEATHER_BOOTS){}
@@ -40,7 +42,6 @@ public static ArrayList<String> players = new ArrayList<String>();
 				player.getInventory().getChestplate().setItemMeta(m);
 				player.getInventory().getLeggings().setItemMeta(m);
 				nextRGB();
-			}catch(Exception e){/*CleanUpArmor*/}
 		}
 		}
 	}
