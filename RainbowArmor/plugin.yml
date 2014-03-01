@@ -1,0 +1,8 @@
+name: RainbowArmor
+main: com.shadowcasted.rainbowarmor.main.Main
+version: 0.1
+commands:
+   rainbowarmor:
+      description: This is the command used for my plugin.
+      permission: SC.bla
+      permission-message: You don't have permission
