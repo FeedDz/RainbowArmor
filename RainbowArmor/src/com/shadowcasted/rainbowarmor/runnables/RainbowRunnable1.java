@@ -31,8 +31,14 @@ public static ArrayList<String> players = new ArrayList<String>();
 		LeatherArmorMeta m = (LeatherArmorMeta)i.getItemMeta();
 			try{
 				if(player.getInventory().getHelmet().getType() != Material.LEATHER_HELMET){}
+				if(player.getInventory().getChestplate().getType() != Material.LEATHER_CHESTPLATE){}
+				if(player.getInventory().getBoots().getType() != Material.LEATHER_BOOTS){}
+				if(player.getInventory().getLeggings().getType() != Material.LEATHER_LEGGINGS){}
 				m.setColor(Color.fromRGB(r, g, b));
 				player.getInventory().getHelmet().setItemMeta(m);
+				player.getInventory().getBoots().setItemMeta(m);
+				player.getInventory().getChestplate().setItemMeta(m);
+				player.getInventory().getLeggings().setItemMeta(m);
 				nextRGB();
 			}catch(Exception e){/*CleanUpArmor*/}
 		}
