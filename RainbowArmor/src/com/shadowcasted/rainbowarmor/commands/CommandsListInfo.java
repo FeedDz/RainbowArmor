@@ -1,4 +1,4 @@
-package rb.commands;
+package com.shadowcasted.rainbowarmor.commands;
 
 public class CommandsListInfo {
 /*

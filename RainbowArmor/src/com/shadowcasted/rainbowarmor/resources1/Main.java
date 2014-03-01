@@ -1,4 +1,4 @@
-package rb.resources1;
+package com.shadowcasted.rainbowarmor.resources1;
 
 import java.util.HashMap;
 

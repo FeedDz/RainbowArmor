@@ -1,4 +1,4 @@
-package rb.runnables;
+package com.shadowcasted.rainbowarmor.runnables;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Color;

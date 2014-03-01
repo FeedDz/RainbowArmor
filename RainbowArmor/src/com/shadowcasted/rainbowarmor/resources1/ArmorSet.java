@@ -1,4 +1,4 @@
-package rb.resources1;
+package com.shadowcasted.rainbowarmor.resources1;
 
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;

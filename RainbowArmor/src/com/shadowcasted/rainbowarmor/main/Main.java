@@ -1,8 +1,9 @@
-package rb.main;
+package com.shadowcasted.rainbowarmor.main;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import rb.commands.RainbowArmor;
+import com.shadowcasted.rainbowarmor.commands.RainbowArmor;
+
 
 public class Main extends JavaPlugin{
 
